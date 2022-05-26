@@ -1,0 +1,31 @@
+<% @flats.each do |flat| %>
+<div class="col-md-3">
+  <div class="flat-card">
+    <div class="flat-card-image">
+      <img
+        src="https://source.unsplash.com/random/?homes"
+        class="card-img-top"
+        alt="house-image"
+      />
+    </div>
+    <div class="flat-card-content">
+      <div class="flat-card-title">
+        <%= flat.name %>
+        <%= flat.description %>
+      </div>
+      <p><%= flat.address %></p>
+      <div class="flex">
+        <div class="flex">
+          <i class="material-icons me-2">people</i>
+          <span><%= flat.number_of_guests %></span>
+        </div>
+        <div class="flex ms-3">
+          <i class="fa-light fa-circle-dollar"></i>
+          <span><%= flat.price_per_night %></span>
+        </div>
+      </div>
+    </div>
+    <div class="flat-card-actions"></div>
+  </div>
+</div>
+<% end %>

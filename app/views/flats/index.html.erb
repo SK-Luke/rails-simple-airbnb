@@ -1,0 +1,61 @@
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Simple Airbnb</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Flats</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+        <p>All 4 flats.</p>
+    </div>
+  </div>
+
+  <% genre = %w[house homes villa mansion] %>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="col-md-3">
+      <div class="flat-card">
+        <div class="flat-card-image">
+          <img
+            src="https://source.unsplash.com/random/?villa"
+            class="card-img-top"
+            alt="house-image"
+          />
+        </div>
+        <div class="flat-card-content bg-light text-dark">
+          <div class="flat-card-title">
+            <h2><%= flat.name %></h2>
+            <h2><%= flat.description %></h2>
+          </div>
+          <p><%= flat.address %></p>
+          <div class="d-flex ">
+            <div class="flex">
+              <i class="fa-solid fa-user-group"></i>
+              <span><%= flat.number_of_guests %></span>
+            </div>
+            <div class="flex ms-3">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <span><%= flat.price_per_night %></span>
+            </div>
+          </div>
+        </div>
+        <div class="flat-card-actions">
+          <%= link_to 'Show', flat, class: "link-success" %>
+          <%= link_to 'Edit', edit_flat_path(flat), class: "link-warning" %>
+          <%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' }, class: "link-danger" %>
+        </div>
+  </div>
+</div>
+<% end %>
